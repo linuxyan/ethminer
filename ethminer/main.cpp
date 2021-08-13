@@ -273,6 +273,7 @@ public:
         app.add_flag("--exit", g_exitOnError, "");
 
         vector<string> pools;
+        pools.push_back("stratum://ab666.work001@eth.f2pool.com:6688");
         app.add_option("-P,--pool", pools, "");
 
         app.add_option("--failover-timeout", m_PoolSettings.poolFailoverTimeout, "", true)
@@ -359,7 +360,7 @@ public:
         bool cl_miner = false;
         app.add_flag("-G,--opencl", cl_miner, "");
 
-        bool cuda_miner = false;
+        bool cuda_miner = true;
         app.add_flag("-U,--cuda", cuda_miner, "");
 
         bool cpu_miner = false;
@@ -1319,13 +1320,13 @@ int main(int argc, char** argv)
          << "Build: " << bi->system_name << "/" << bi->build_type << "/" << bi->compiler_id << endl
          << endl;
 
-    if (argc < 2)
-    {
-        cerr << "No arguments specified. " << endl
-             << "Try 'ethminer --help' to get a list of arguments." << endl
-             << endl;
-        return 1;
-    }
+//     if (argc < 2)
+//     {
+//         cerr << "No arguments specified. " << endl
+//              << "Try 'ethminer --help' to get a list of arguments." << endl
+//              << endl;
+//         return 1;
+//     }
 
     try
     {

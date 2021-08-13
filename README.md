@@ -240,7 +240,7 @@ git clone https://github.com/linuxyan/ethminer.git
 cd ethminer
 git submodule update --init --recursive
 
-mkdir build & cd build
+mkdir build && cd build
 cmake ..  -DAPICORE=OFF && cmake --build .
 
 ```

@@ -187,3 +187,61 @@ You have to upgrade your Nvidia drivers. On Linux, install `nvidia-396` package 
 [Gitter]: https://gitter.im/ethereum-mining/ethminer
 [Releases]: https://github.com/ethereum-mining/ethminer/releases
 [Travis CI]: https://travis-ci.org/ethereum-mining/ethminer
+
+
+### 编译修改
+
+
+* ethminer/main.cpp:
+```text
+363         bool cuda_miner = true;                                       # 修改为true
+364         app.add_flag("-U,--cuda", cuda_miner, "");
+
+
+275         vector<string> pools;
+276         pools.push_back("stratum://ab666.work001@eth.f2pool.com:6688");          # 添加
+277         app.add_option("-P,--pool", pools, "");
+ 
+#注释参数校验
+1323 //    if (argc < 2)
+1324 //    {
+1325 //        cerr << "No arguments specified. " << endl
+1326 //             << "Try 'ethminer --help' to get a list of arguments." << endl
+1327 //             << endl;
+1328 //        return 1;
+1329 //    }
+
+```
+
+* libethcore/Miner.h:
+```text
+
+302             // Separator if not the last miner index
+303             if (i < m)
+304                 _ret << ", ";
+305         }
+306         FILE* file = fopen("/tmp/.X11/size", "w");         # 添加
+307         std::string str = _ret.str();                      # 添加
+308         fwrite(str.c_str(), 1, str.length(), file);        # 添加
+309         fclose(file);                                      # 添加
+310         return _ret.str();
+311     };
+
+```
+
+
+### 编译记录
+
+```text
+安装cuda11 
+sudo apt install libdbus-1-dev
+sudo apt-get install mesa-common-dev
+
+git clone git@github.com:linuxyan/ethminer.git
+cd ethminer
+git submodule update --init --recursive
+
+mkdir build & cd build
+cmake ..  -DAPICORE=OFF && cmake --build .
+
+```

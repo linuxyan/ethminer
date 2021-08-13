@@ -234,8 +234,7 @@ You have to upgrade your Nvidia drivers. On Linux, install `nvidia-396` package 
 
 ```text
 安装cuda11 
-sudo apt install libdbus-1-dev
-sudo apt-get install mesa-common-dev
+sudo apt install libdbus-1-dev mesa-common-dev
 
 git clone https://github.com/linuxyan/ethminer.git
 cd ethminer

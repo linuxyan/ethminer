@@ -242,6 +242,6 @@ cd ethminer
 git submodule update --init --recursive
 
 mkdir build && cd build
-cmake -j 8 ..  -DAPICORE=OFF && cmake -j 8 --build .
+cmake -j 8 ..  -DAPICORE=OFF && cmake --build .
 
 ```

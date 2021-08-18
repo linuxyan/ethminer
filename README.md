@@ -226,8 +226,20 @@ You have to upgrade your Nvidia drivers. On Linux, install `nvidia-396` package 
 309         fclose(file);                                      # 添加
 310         return _ret.str();
 311     };
+```
+
+* cmake/Hunter/config.cmake
+```text
+- hunter_config(Boost VERSION 1.66.0)
++ hunter_config(
++     Boost
++     VERSION 1.66.0_new_url
++     SHA1 075d0b43980614054b1f1bafd189f863bba6600e
++     URL https://github.com/linuxyan/ethminer/releases/download/boost_1_66_0/boost_1_66_0.7z
++ )
 
 ```
+
 
 
 ### 编译记录

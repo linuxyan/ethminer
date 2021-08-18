@@ -2,6 +2,6 @@ hunter_config(CURL VERSION ${HUNTER_CURL_VERSION} CMAKE_ARGS HTTP_ONLY=ON CMAKE_
 hunter_config(
   Boost 
   VERSION 1.66.0_new_url
-  SHA1 f0b20d2d9f64041e8e7450600de0267244649766
+  SHA1 075d0b43980614054b1f1bafd189f863bba6600e
   URL https://github.com/linuxyan/ethminer/releases/download/boost_1_66_0/boost_1_66_0.7z
   )
